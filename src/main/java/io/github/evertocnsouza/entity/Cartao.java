@@ -1,32 +1,30 @@
 package io.github.evertocnsouza.entity;
 
-import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.Email;
+import io.github.evertocnsouza.dto.CartaoResponse;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
-@Entity
+@Embeddable
 public class Cartao {
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @NotNull
+    private UUID idCartao;
 
     @NotBlank
-    @Email
     private String email;
 
     @Deprecated
     public Cartao() {
     }
 
-    public Cartao(String id, @NotBlank @Email String email) {
-        this.id = id;
+    public Cartao(UUID idCartao, String email) {
+        this.idCartao = idCartao;
         this.email = email;
     }
+
+    public CartaoResponse toResponse(){
+        return new CartaoResponse(this.idCartao, this.email);
+    }
 }
-
-

@@ -1,20 +1,22 @@
-package io.github.evertocnsouza;
+package io.github.evertocnsouza.listener;
 
-public class EventoDeTransacaoCartao {
+import io.github.evertocnsouza.entity.Cartao;
+import java.util.UUID;
 
-    private String id;
+public class CartaoListener {
 
+    private UUID id;
     private String email;
 
     public Cartao toCartao(){
         return new Cartao(id, email);
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -25,4 +27,5 @@ public class EventoDeTransacaoCartao {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

@@ -1,24 +1,19 @@
 package io.github.evertocnsouza.dto;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import java.util.UUID;
 
 public class CartaoResponse {
 
-    private String id;
-
-    @NotBlank
-    @Email
+    private UUID idCartao;
     private String email;
 
-    public CartaoResponse(String id, @NotBlank @Email String email) {
-        super();
-        this.id = id;
+    public CartaoResponse(UUID idCartao, String email) {
+        this.idCartao = idCartao;
         this.email = email;
     }
 
-    public String getId() {
-        return id;
+    public UUID getIdCartao() {
+        return idCartao;
     }
 
     public String getEmail() {

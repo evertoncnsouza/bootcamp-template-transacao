@@ -1,6 +1,6 @@
-package io.github.evertocnsouza.embeddable;
+package io.github.evertocnsouza.entity;
 
-
+import io.github.evertocnsouza.dto.EstabelecimentoResponse;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
 
@@ -20,11 +20,13 @@ public class Estabelecimento {
     public Estabelecimento() {
     }
 
-    public Estabelecimento(@NotBlank String nome,
-                           @NotBlank String cidade,
-                           @NotBlank String endereco) {
+    public Estabelecimento(String nome, String cidade, String endereco) {
         this.nome = nome;
         this.cidade = cidade;
         this.endereco = endereco;
+    }
+
+    public EstabelecimentoResponse toResponse(){
+        return new EstabelecimentoResponse(this.nome, this.cidade, this.endereco);
     }
 }
