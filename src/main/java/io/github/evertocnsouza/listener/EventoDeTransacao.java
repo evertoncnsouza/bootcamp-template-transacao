@@ -22,40 +22,39 @@ public class EventoDeTransacao {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
-
-    public EstabelecimentoListener getEstabelecimento() {
+    public EstabelecimentoListener getEstabelecimentoListener() {
         return estabelecimentoListener;
     }
 
-    public void setEstabelecimento(EstabelecimentoListener estabelecimentoListener) {
-        this.estabelecimentoListener = estabelecimentoListener;
-    }
-
-    public CartaoListener getCartao() {
+    public CartaoListener getCartaoListener() {
         return cartaoListener;
-    }
-
-    public void setCartao(CartaoListener cartaoListener) {
-        this.cartaoListener = cartaoListener;
     }
 
     public LocalDateTime getEfetivadaEm() {
         return efetivadaEm;
     }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public void setEstabelecimentoListener(EstabelecimentoListener estabelecimentoListener) {
+        this.estabelecimentoListener = estabelecimentoListener;
+    }
+
+    public void setCartaoListener(CartaoListener cartaoListener) {
+        this.cartaoListener = cartaoListener;
+    }
+
     public void setEfetivadaEm(LocalDateTime efetivadaEm) {
         this.efetivadaEm = efetivadaEm;
     }
-
 }

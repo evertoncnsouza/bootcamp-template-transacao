@@ -39,7 +39,7 @@ public class TransacaoController {
                 .getResultList();
 
         if(transacoes.isEmpty()){
-            log.warn("[CONSULTAR TRANSAÇÕES] Nenhuma transação encontrada para o cartão {}", idCartao);
+            log.warn("Este cartão não tem transações {}", idCartao);
             Map response = new HashMap();
             response.put("mensagem", "Nenhuma transação foi encontrada para o cartão " + idCartao);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
