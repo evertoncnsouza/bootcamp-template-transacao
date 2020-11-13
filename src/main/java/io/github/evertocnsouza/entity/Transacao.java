@@ -1,7 +1,6 @@
 package io.github.evertocnsouza.entity;
 
 import io.github.evertocnsouza.dto.TransacaoResponse;
-import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -18,9 +17,8 @@ import java.util.stream.Collectors;
 public class Transacao {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedValue(generator = "uuid4")
+    private UUID id;
 
     @NotNull
     private UUID idTransacao;

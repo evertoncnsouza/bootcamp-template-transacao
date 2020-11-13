@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 public class TransacaoResponse {
 
     private BigDecimal valor;
-    private EstabelecimentoResponse estabelecimentoResponse;
-    private CartaoResponse cartaoResponse;
+    private EstabelecimentoResponse estabelecimento;
+    private CartaoResponse cartao;
     private LocalDateTime efetivadaEm;
 
     @Deprecated
@@ -15,28 +15,54 @@ public class TransacaoResponse {
     }
 
     public TransacaoResponse(BigDecimal valor,
-                             EstabelecimentoResponse estabelecimentoResponse,
-                             CartaoResponse cartaoResponse, LocalDateTime efetivadaEm) {
+                             EstabelecimentoResponse estabelecimento,
+                             CartaoResponse cartao, LocalDateTime efetivadaEm) {
         this.valor = valor;
-        this.estabelecimentoResponse = estabelecimentoResponse;
-        this.cartaoResponse = cartaoResponse;
+        this.estabelecimento = estabelecimento;
+        this.cartao = cartao;
         this.efetivadaEm = efetivadaEm;
     }
+
 
     public BigDecimal getValor() {
         return valor;
     }
 
-    public EstabelecimentoResponse getEstabelecimentoResponse() {
-        return estabelecimentoResponse;
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 
-    public CartaoResponse getCartaoResponse() {
-        return cartaoResponse;
+    public EstabelecimentoResponse getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public void setEstabelecimento(EstabelecimentoResponse estabelecimento) {
+        this.estabelecimento = estabelecimento;
+    }
+
+    public CartaoResponse getCartao() {
+        return cartao;
+    }
+
+    public void setCartao(CartaoResponse cartao) {
+        this.cartao = cartao;
     }
 
     public LocalDateTime getEfetivadaEm() {
         return efetivadaEm;
     }
 
+    public void setEfetivadaEm(LocalDateTime efetivadaEm) {
+        this.efetivadaEm = efetivadaEm;
+    }
+
+    @Override
+    public String toString() {
+        return "TransacaoResponse{" +
+                "valor=" + valor +
+                ", estabelecimentoResponse=" + estabelecimento +
+                ", cartaoResponse=" + cartao +
+                ", efetivadaEm=" + efetivadaEm +
+                '}';
+    }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ import java.util.UUID;
 @RequestMapping("/transacoes")
 public class TransacaoController {
 
-    @Autowired
+    @PersistenceContext
     private EntityManager manager;
 
     @Autowired
@@ -44,7 +45,6 @@ public class TransacaoController {
             response.put("mensagem", "Nenhuma transação foi encontrada para o cartão " + idCartao);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-
         return ResponseEntity.ok(Transacao.toResponseList(transacoes));
     }
 }
